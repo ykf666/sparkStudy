@@ -1,4 +1,4 @@
-name := "SparkStudy"
+name := "sparkStudy"
 
 version := "1.0"
 
