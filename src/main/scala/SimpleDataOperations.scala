@@ -4,12 +4,10 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
   * Created by yankefei on 2017/9/5.
   */
-class SimpleDataOperations {
+object SimpleDataOperations {
 
   def main(args: Array[String]): Unit = {
-
     val spark = SparkSession.builder().appName("SimpleDataOperations").getOrCreate()
-
     val url = "jdbc:mysql://10.60.1.248:3306/test"
     val df = spark
       .read
@@ -28,7 +26,6 @@ class SimpleDataOperations {
     countsByAge.show()
 
     // Saves countsByAge to S3 in the JSON format.
-    //    countsByAge.write.format("json").save("s3a://...")
+    countsByAge.write.format("json").save("s3a://s3atest")
   }
-
 }
