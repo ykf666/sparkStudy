@@ -26,6 +26,6 @@ object SimpleDataOperations {
     countsByAge.show()
 
     // Saves countsByAge to S3 in the JSON format.
-    countsByAge.write.format("json").save("s3a://s3atest")
+    countsByAge.write.format("json").save("s3a://test")
   }
 }
