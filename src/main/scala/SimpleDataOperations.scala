@@ -8,7 +8,7 @@ object SimpleDataOperations {
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().appName("SimpleDataOperations").getOrCreate()
-    val url = "jdbc:mysql://10.60.1.248:3306/test"
+    val url = "jdbc:mysql://localhost:3306/test"
     val df = spark
       .read
       .format("jdbc")
