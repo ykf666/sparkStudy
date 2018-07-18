@@ -1,5 +1,6 @@
-import org.apache.spark.sql.{SQLContext, SparkSession}
-import org.apache.spark.{SparkConf, SparkContext}
+package spark
+
+import org.apache.spark.sql.SparkSession
 
 /**
   * Created by yankefei on 2017/9/5.
@@ -25,7 +26,7 @@ object SimpleDataOperations {
     val countsByAge = df.groupBy("age").count()
     countsByAge.show()
 
-    // Saves countsByAge to S3 in the JSON format.
-    countsByAge.write.format("json").save("s3a://test")
+    // Saves countsByAge to hdfs in the JSON format.
+    countsByAge.write.format("json").save("hdfs://10.60.1.246:9000/spark/person")
   }
 }
