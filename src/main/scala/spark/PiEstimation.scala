@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object PiEstimation {
   def main(args: Array[String]): Unit = {
     val NUM_SAMPLES = args(0).toInt
-    val conf = new SparkConf().setAppName("PiEstimation")
+    val conf = new SparkConf().setMaster("local").setAppName("PiEstimation")
     val sc = new SparkContext(conf)
     val count = sc.parallelize(1 to NUM_SAMPLES).filter { _ =>
       val x = math.random
